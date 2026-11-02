@@ -2,21 +2,18 @@ services:
   - type: web
     name: finn-fastapi
     runtime: python
-    plan: starter
+    plan: free
     rootDir: backend
     buildCommand: pip install -r requirements.txt
     startCommand: uvicorn app.main:app --host 0.0.0.0 --port $PORT
     healthCheckPath: /health
-    disk:
-      name: finn-persistent-data
-      mountPath: /var/data
-      sizeGB: 1
     envVars:
       - key: FINN_DB_PATH
-        value: /var/data/finn.sqlite3
+        value: /opt/render/project/src/backend/data/finn.sqlite3
       - key: FINN_GEMINI_MODEL
         value: gemini-3.5-flash-lite
       - key: FINN_GEMINI_MAX_CALLS_PER_PROCESS
         value: "60"
       - key: GEMINI_API_KEY
         sync: false
+
