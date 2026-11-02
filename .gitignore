@@ -1,0 +1,22 @@
+# Add these to the ROOT of the FINN Git repository .gitignore (no keys or local databases)
+**/.venv/
+**/node_modules/
+**/dist/
+**/__pycache__/
+**/.pytest_cache/
+**/.env
+**/.env.*
+*.sqlite3
+*.sqlite3-*
+*.db
+*.db-*
+*.pem
+*.key
+backend/data/
+backend/research-quality-backups/
+backend/release-backups/
+backend/phase4-backup-*/
+
+# Do not commit API keys / PDFs / database dumps
+*.pdf
+*.bak
